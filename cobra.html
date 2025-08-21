@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Centro de Pesquisa e Operações com Balões – UFT</title>
+  <meta name="description" content="Centro de Pesquisa e Operações com Balões do Tocantins – UFT. Explorando a atmosfera com ciência, educação e cooperação internacional." />
+  <style>
+    :root{
+      --azul:#003366; /* institucional */
+      --azul-2:#006699;
+      --verde:#007F5F;
+      --verde-2:#00A36C;
+      --texto:#0f172a; /* slate-900 */
+      --texto-2:#334155; /* slate-700 */
+      --borda:#e2e8f0; /* slate-200 */
+      --bg:#ffffff;
+      --bg-muted:#f1f5f9; /* slate-100 */
+      --radius:16px;
+      --shadow:0 8px 24px rgba(2,6,23,.08);
+      --shadow-sm:0 4px 14px rgba(2,6,23,.06);
+      --container:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--texto);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:12px;font-weight:600;border:1px solid transparent}
+    .btn-primary{background:var(--verde);color:#fff}
+    .btn-outline{border-color:#fff;color:#fff}
+    .btn-link{color:var(--azul)}
+    .btn:hover{filter:brightness(.95)}
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--borda)}
+    .nav{display:flex;justify-content:space-between;align-items:center;height:64px}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .logo{width:36px;height:36px;background:var(--azul);color:#fff;border-radius:10px;display:grid;place-items:center;font-weight:800}
+    .brand small{color:#475569;display:block;margin-top:-4px}
+    .menu{display:none;gap:1.2rem}
+    @media(min-width:860px){.menu{display:flex}}
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.50),rgba(0,0,0,.35) 40%,rgba(255,255,255,1) 100%)}
+    .hero-wrap{padding:88px 0 96px;color:#fff}
+    .hero h1{font-size:clamp(28px,4vw,48px);line-height:1.15;margin:0 0 10px}
+    .hero p{max-width:720px;margin:10px 0 0;color:#eef2ff}
+    .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:22px}
+
+    /* Section */
+    section{padding:64px 0}
+    .section-title{font-size:clamp(22px,3vw,36px);margin:0 0 8px}
+    .section-sub{color:#64748b;margin:0 0 24px}
+
+    /* Grid cards */
+    .grid{display:grid;gap:18px}
+    @media(min-width:720px){.grid-2{grid-template-columns:1.2fr .8fr}}
+    @media(min-width:960px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+
+    /* Feature cards */
+    .feature-card{border:1px solid var(--borda);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-sm);background:#fff;transition:transform .15s ease, box-shadow .15s ease}
+    .feature-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+    .feature-icon{width:28px;height:28px;display:inline-grid;place-items:center;color:var(--verde)}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,51,102,.1);color:var(--azul);padding:.35rem .6rem;border-radius:999px;font-weight:700;font-size:.85rem}
+
+    /* News */
+    .news-card{overflow:hidden;border:1px solid var(--borda);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow-sm)}
+    .news-body{padding:16px}
+    .news-meta{font-size:.75rem;color:#64748b;text-transform:uppercase;letter-spacing:.06em}
+    .news-title{font-weight:700;margin:6px 0}
+    .news-excerpt{color:#475569;font-size:.95rem}
+
+    /* CTA band */
+    .cta{border-radius:18px;padding:28px;background:linear-gradient(90deg,var(--azul),var(--azul-2));color:#fff;box-shadow:var(--shadow)}
+    .cta-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:10px}
+
+    /* Partners */
+    .partners{border:1px solid var(--borda);border-radius:18px;padding:24px}
+    .partners-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+    @media(min-width:640px){.partners-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:960px){.partners-grid{grid-template-columns:repeat(6,1fr)}}
+    .partner-item{display:grid;place-items:center;background:var(--bg-muted);border-radius:12px;padding:14px;font-weight:700;color:#475569}
+
+    /* Footer */
+    footer{background:var(--bg-muted);border-top:1px solid var(--borda)}
+    .footer-grid{display:grid;gap:24px}
+    @media(min-width:860px){.footer-grid{grid-template-columns:2fr 1fr 1.2fr 1.4fr}}
+    .input{width:100%;padding:.7rem .9rem;border:1px solid var(--borda);border-radius:12px}
+    .muted{color:#64748b}
+    
+    /* Simple anchors inside the embed */
+    .anchor{scroll-margin-top:80px}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <div class="logo">UFT</div>
+        <div>
+          <strong>Centro de Pesquisa e Operações</strong>
+          <small>Balões do Tocantins – UFT</small>
+        </div>
+      </a>
+      <nav class="menu" aria-label="principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#estrutura">Estrutura</a>
+        <a href="#missoes">Missões</a>
+        <a href="#capacitacao">Capacitação</a>
+        <a href="#parcerias">Parcerias</a>
+        <a href="#noticias">Notícias</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a href="#participar" class="btn btn-primary" style="display:none">Seja Parceiro</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="container hero-wrap">
+      <h1>Explorando a atmosfera, conectando ciência e inovação</h1>
+      <p>Projeto estratégico da Universidade Federal do Tocantins (UFT), em cooperação com a AEB e o CNES, para operar missões científicas com balões estratosféricos no Brasil.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#sobre">Conheça o Projeto</a>
+        <a class="btn btn-outline" href="#participar">Participe</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre + Features -->
+  <section id="sobre" class="anchor">
+    <div class="container grid grid-2">
+      <div>
+        <span class="badge">Projeto UFT</span>
+        <h2 class="section-title">Uma nova fronteira para a ciência no Brasil</h2>
+        <p class="section-sub">Desde 2022, a UFT vem estruturando um centro de classe mundial para lançamentos, rastreamento e recuperação de balões estratosféricos, integrando o Tocantins ao cenário internacional de pesquisas em meteorologia, clima, astrofísica e tecnologias aeroespaciais.</p>
+        <ul>
+          <li>Base com <strong>9 alqueires</strong> em Porto Nacional (TO), a 28 km da UFT e 5 km do pátio multimodal da Ferrovia Norte-Sul.</li>
+          <li>Cooperação ativa com <strong>AEB</strong>, <strong>CNES</strong> e centros internacionais (Timmins/Canadá e Kiruna/Suécia).</li>
+          <li>Capacitação de equipes em infraestrutura operacional, instrumentação embarcada e processamento de dados.</li>
+        </ul>
+        <div style="margin-top:14px">
+          <a href="#participar" class="btn btn-primary">Seja Parceiro</a>
+          <a href="#noticias" class="btn btn-link" style="margin-left:6px">Ver novidades →</a>
+        </div>
+      </div>
+      <div class="grid grid-3">
+        <a class="feature-card" href="#missoes">
+          <div class="feature-icon">🌐</div>
+          <h3 style="margin:.35rem 0 0">Missões Científicas Internacionais</h3>
+          <p class="muted" style="margin:.25rem 0 0">Em parceria com CNES, AEB e universidades estrangeiras.</p>
+        </a>
+        <a class="feature-card" href="#capacitacao">
+          <div class="feature-icon">🎓</div>
+          <h3 style="margin:.35rem 0 0">Formação Especializada</h3>
+          <p class="muted" style="margin:.25rem 0 0">Treinamentos e cursos em tecnologia aeroespacial e instrumentação.</p>
+        </a>
+        <a class="feature-card" href="#estrutura">
+          <div class="feature-icon">📍</div>
+          <h3 style="margin:.35rem 0 0">Localização Estratégica</h3>
+          <p class="muted" style="margin:.25rem 0 0">Base em Porto Nacional, próxima a Palmas, ferrovia e rodovias.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notícias -->
+  <section id="noticias" class="anchor" style="background:var(--bg-muted)">
+    <div class="container">
+      <h2 class="section-title">Últimas Notícias</h2>
+      <p class="section-sub">Acompanhe eventos, treinamentos e avanços do projeto.</p>
+      <div class="grid grid-3">
+        <article class="news-card">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop" alt="Renderização da base de lançamento" />
+          <div class="news-body">
+            <div class="news-meta">27 de abril de 2024</div>
+            <div class="news-title">Obras da Base de Lançamento são iniciadas</div>
+            <p class="news-excerpt">Avanço da infraestrutura operacional no terreno de Porto Nacional.</p>
+            <a class="btn btn-link" href="#">Ler mais →</a>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="Treinamento de equipe com balão científico" />
+          <div class="news-body">
+            <div class="news-meta">19 de abril de 2024</div>
+            <div class="news-title">Equipe participa de treinamento no Canadá</div>
+            <p class="news-excerpt">Operações com balões, integração de cargas úteis e protocolos de segurança.</p>
+            <a class="btn btn-link" href="#">Ler mais →</a>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="https://images.unsplash.com/photo-1520974689234-cd7e379fcd35?q=80&w=1200&auto=format&fit=crop" alt="Balão na atmosfera ao pôr do sol" />
+          <div class="news-body">
+            <div class="news-meta">8 de abril de 2024</div>
+            <div class="news-title">Planejamento das primeiras missões com balões</div>
+            <p class="news-excerpt">Definição de janelas de voo e requisitos técnicos das cargas científicas.</p>
+            <a class="btn btn-link" href="#">Ler mais →</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- CTA Como Participar -->
+      <div id="participar" class="cta" style="margin-top:28px">
+        <div class="grid" style="grid-template-columns:1.2fr .8fr;gap:18px">
+          <div>
+            <h3 style="margin:0">Como Participar</h3>
+            <p style="margin:8px 0 0;color:#eaf2ff">Pesquisadores, estudantes e instituições podem submeter projetos, participar de capacitações e propor parcerias.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" style="background:var(--verde-2)" href="#">Submeter Proposta</a>
+            <a class="btn btn-outline" href="#capacitacao">Capacitação</a>
+            <a class="btn btn-outline" href="#parcerias">Parcerias</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parcerias -->
+  <section id="parcerias" class="anchor">
+    <div class="container">
+      <div class="partners">
+        <p class="news-meta" style="text-align:center">Parcerias</p>
+        <div class="partners-grid" aria-label="Logos de parceiros">
+          <div class="partner-item">AEB</div>
+          <div class="partner-item">CNES</div>
+          <div class="partner-item">ESA</div>
+          <div class="partner-item">ESA-PAC</div>
+          <div class="partner-item">SpaceOps</div>
+          <div class="partner-item">SSC Kiruna</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contato -->
+  <footer id="contato" class="anchor">
+    <div class="container" style="padding:36px 0">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">
+            <div class="logo">UFT</div>
+            <div>
+              <strong>Centro de Pesquisa e Operações</strong>
+              <small>Balões do Tocantins – UFT</small>
+            </div>
+          </div>
+          <p class="muted" style="margin-top:8px">Explorando a atmosfera com ciência, educação e cooperação internacional.</p>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px">Navegação</h4>
+          <nav class="muted">
+            <div><a href="#sobre">Sobre</a></div>
+            <div><a href="#estrutura">Estrutura</a></div>
+            <div><a href="#missoes">Missões</a></div>
+            <div><a href="#noticias">Notícias</a></div>
+          </nav>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px">Contato</h4>
+          <ul class="muted" style="padding-left:16px;margin:0">
+            <li>Porto Nacional – TO</li>
+            <li>contato@uft.edu.br</li>
+            <li>Universidade Federal do Tocantins</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px">Newsletter</h4>
+          <form onsubmit="event.preventDefault(); alert('Obrigado! Seu e-mail foi registrado. (Exemplo)');">
+            <input class="input" type="email" placeholder="Seu e-mail" required />
+            <button class="btn btn-primary" style="margin-top:8px;width:100%">Assinar</button>
+          </form>
+        </div>
+      </div>
+      <div class="muted" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;margin-top:20px;font-size:.85rem">
+        <span>© <span id="year"></span> UFT – Universidade Federal do Tocantins. Todos os direitos reservados.</span>
+        <span>Feito com ciência e colaboração.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
